@@ -27,7 +27,7 @@ void AGridManager::ConstructGrid()
 		}
 	}
 	
-	GridMesh->SetWorldScale3D(FVector(NumberOfCells * CellSize/100, NumberOfCells * CellSize/100, 0));
+	//GridMesh->SetWorldScale3D(FVector(NumberOfCells * CellSize/100, NumberOfCells * CellSize/100, 0));
 }
 
 FGridCell* AGridManager::ConvertWorldPosToCell(FVector WorldPos)
