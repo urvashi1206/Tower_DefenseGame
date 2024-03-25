@@ -36,6 +36,11 @@ public:
 	bool IsCellEmpty(FVector WorldPos);
 	UFUNCTION(BlueprintCallable)
 	void SetIsCellEmpty(FVector WorldPos, bool bIsEmpty);
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AActor> TownHall;
+
+	void PlaceTownHall();
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

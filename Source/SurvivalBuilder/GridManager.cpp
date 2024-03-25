@@ -41,12 +41,22 @@ FGridCell* AGridManager::ConvertWorldPosToCell(FVector WorldPos)
 	return GridCells[ColIndex][RowIndex];
 }
 
+void AGridManager::PlaceTownHall()
+{
+	int centerIndex = NumberOfCells / 2;
+	FVector SpawnLocation = GridCells[centerIndex][centerIndex]->centerPos;
+	FActorSpawnParameters SpawnParameters;
+	GetWorld()->SpawnActor<AActor>(TownHall, SpawnLocation, FRotator(), SpawnParameters);
+	GridCells[centerIndex][centerIndex]->bIsEmpty = false;
+}
+
 // Called when the game starts or when spawned
 void AGridManager::BeginPlay()
 {
 	Super::BeginPlay();
 
 	ConstructGrid();
+	PlaceTownHall();
 }
 
 
