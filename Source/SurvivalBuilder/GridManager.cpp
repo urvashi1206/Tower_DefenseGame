@@ -46,6 +46,7 @@ void AGridManager::PlaceTownHall()
 	int centerIndex = NumberOfCells / 2;
 	FVector SpawnLocation = GridCells[centerIndex][centerIndex]->centerPos;
 	FActorSpawnParameters SpawnParameters;
+	SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 	GetWorld()->SpawnActor<AActor>(TownHall, SpawnLocation, FRotator(), SpawnParameters);
 	GridCells[centerIndex][centerIndex]->bIsEmpty = false;
 }
